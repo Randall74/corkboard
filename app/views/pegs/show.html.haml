@@ -1,0 +1,6 @@
+%h1= @peg.title
+%p= @peg.description
+
+= link_to "Back", root_path
+= link_to "Edit", edit_peg_path
+=link_to "Delete", peg_path, method: :delete, data: { confirm: "Are you sure?" }

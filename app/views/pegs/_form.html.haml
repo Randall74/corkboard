@@ -1,0 +1,17 @@
+= simple_form_for @peg, html: { multipart: true } do |f|
+    - if @peg.errors.any?
+        #errors
+            %h2
+            = pluralize(@peg.errors.count, "error")
+            prevented this Peg from saving
+            %ul
+                - @peg.errors.full_messages.each do |msg|
+                    %li= msg
+                    
+    .form-group
+        = f.input :title, input_html: { class: 'form-control' }
+        
+    .form-group
+        = f.input :description, input_html: { class: 'form-control' }
+        
+    = f.button :submit, class: "btn btn-primary"
