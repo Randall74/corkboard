@@ -1,5 +1,10 @@
 %h1= @peg.title
 %p= @peg.description
+%p
+Submitted by
+= @peg.user.email
+
+%br/
 
 = link_to "Back", root_path
 = link_to "Edit", edit_peg_path

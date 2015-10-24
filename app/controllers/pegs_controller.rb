@@ -9,11 +9,11 @@ class PegsController < ApplicationController
     end
     
     def new
-        @peg = Peg.new
+        @peg = current_user.pegs.build
     end
     
     def create
-        @peg = Peg.new(peg_params)
+        @peg = current_user.pegs.build(peg_params)
         
         if @peg.save
             redirect_to @peg, notice: "Successfully created new Peg"
