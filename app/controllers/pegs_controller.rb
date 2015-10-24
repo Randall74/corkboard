@@ -42,7 +42,7 @@ class PegsController < ApplicationController
     private
     
     def peg_params
-        params.require(:peg).permit(:title, :description)
+        params.require(:peg).permit(:title, :description, :image)
     end
     
     def find_peg
