@@ -1,5 +1,6 @@
 class PegsController < ApplicationController
     before_action :find_peg, only: [:show, :edit, :update, :destroy, :upvote]
+    before_action :authenticate_user!, except: [:index, :show]
     
     def index
         @pegs = Peg.all.order("created_at DESC")
