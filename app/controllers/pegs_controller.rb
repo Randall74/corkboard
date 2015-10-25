@@ -1,5 +1,5 @@
 class PegsController < ApplicationController
-    before_action :find_peg, only: [:show, :edit, :update, :destroy]
+    before_action :find_peg, only: [:show, :edit, :update, :destroy, :upvote]
     
     def index
         @pegs = Peg.all.order("created_at DESC")
@@ -37,6 +37,11 @@ class PegsController < ApplicationController
     def destroy
         @peg.destroy
         redirect_to root_path
+    end
+    
+    def upvote
+        @peg.upvote_by current_user
+        redirect_to :back
     end
     
     private
