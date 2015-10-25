@@ -1,12 +1,21 @@
-= image_tag @peg.image.url(:medium)
-%h1= @peg.title
-%p= @peg.description
-%p
-Submitted by
-= @peg.user.email
-
-%br/
-
-= link_to "Back", root_path
-= link_to "Edit", edit_peg_path
-=link_to "Delete", peg_path, method: :delete, data: { confirm: "Are you sure?" }
+#peg_show.row
+    .col-md-8.col-md-offset-2
+        .panel.panel-default
+            .panel-heading.peg_image
+                = image_tag @peg.image.url
+            .panel-body
+                %h1= @peg.title
+                %p.description= @peg.description
+                %p
+                Submitted by
+                = @peg.user.email
+            .panel-footer
+                .row
+                    .col-md-6
+                        %p.user
+                        Submitted by
+                        = @peg.user.email
+                    .col-md-6
+                        .btn-group.pull-right
+                            = link_to "Edit", edit_peg_path, class: "btn btn-default"
+                            =link_to "Delete", peg_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default"

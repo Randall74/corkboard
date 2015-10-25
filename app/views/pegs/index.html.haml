@@ -1,3 +1,9 @@
-- @pegs.each do |peg|
-    = link_to (image_tag peg.image.url(:medium)), peg
-    %h2= link_to peg.title, peg
+#pegs.transitions-enabled
+    - @pegs.each do |peg|
+        .box.panel.panel-default
+            = link_to (image_tag peg.image.url), peg
+            .panel-body
+                %h2= link_to peg.title, peg
+                %p.user
+                Submitted by
+                = peg.user.email
